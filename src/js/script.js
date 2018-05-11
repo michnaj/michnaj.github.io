@@ -9,6 +9,14 @@ $(function() {
 		}, 1000);
   });
 
+  $(".scroll").click(function(event) {
+		event.preventDefault();
+		let goTo = $(this).attr("href");
+		$("html, body").animate({
+			scrollTop: $(goTo).offset().top
+		}, 1000);
+	});
+
   $('#hamburger').click(function(event) {
     event.preventDefault();
     let hamburger = $(this);
