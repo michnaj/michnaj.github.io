@@ -2,7 +2,11 @@ $(function() {
   $('#heading-nav a').click(function(event) {
     event.preventDefault();
     let nav = $('#heading-nav');
-    if (nav.attr('class') == 'open') nav.removeClass('open');
+    let hamburger = $('#hamburger');
+    if (nav.attr('class') == 'open') {
+      nav.removeClass('open');
+      hamburger.removeClass('active');
+    }
 		let goTo = $(this).attr('href');
 		$('html, body').animate({
 			scrollTop: $(goTo).offset().top
