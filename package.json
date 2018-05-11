@@ -1,0 +1,21 @@
+{
+  "name": "jm-portfolio",
+  "version": "1.0.0",
+  "description": "JM Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "jm-portfolio"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "author": "Jarosław Michna",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.23.7",
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify-es": "^1.0.1"
+  }
+}

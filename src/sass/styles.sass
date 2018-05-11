@@ -1,0 +1,429 @@
+/* COLOR DEFINITIONS */
+$baseFont: 'Lato', Arial, Helvetica, sans-serif
+$baseFontColor: #333
+$bgColor: #fff
+$decoColor: orange
+$headersFontColor: #003380
+$baseFontSize: 1em
+$borderColor: #ddd
+$titleFontColor: #fff
+$menuFontColor: #fff
+$menuBgColor: rgba(0, 0, 0, 0.7)
+$progressFontColor: #fff
+$progressBg: #ddd
+$progressBar: #003380
+
+$stickymenu: 1090
+
+/* MIXINS */
+=border-radius($radius)
+  -webkit-border-radius:  $radius
+  -moz-border-radius:     $radius
+  -ms-border-radius:      $radius
+  border-radius:          $radius
+=transform($transform)
+  -webkit-transform:      $transform
+  -ms-transform:          $transform
+  transform:              $transform
+=transition($transition)
+	-webkit-transition:     $transition
+	-moz-transition:        $transition
+	transition:             $transition
+
+/* Extends */
+%mp0
+  margin: 0
+  padding: 0
+
+/* GLOBAL */
+*
+  box-sizing: border-box
+
+body
+  background: $bgColor
+  color: $baseFontColor
+  font-family: $baseFont
+  font-size: $baseFontSize
+  @extend %mp0
+
+h1, h2, h3, h4, h5, h6
+  font-weight: 700
+  margin: 0
+  color: $headersFontColor
+h1, h2
+  text-transform: uppercase
+h1
+  font-size: $baseFontSize * 3.5
+h2
+  font-size: $baseFontSize * 2.5
+h3
+  font-size: $baseFontSize * 2
+h4
+  font-size: $baseFontSize * 1.6
+h5
+  font-size: $baseFontSize * 1.4
+h6
+  font-size: $baseFontSize * 1.2
+
+section
+  margin: 0
+  padding: 50px 0
+  width: 100%
+  border-bottom: 1px solid $borderColor
+
+  h2
+    margin-bottom: 30px
+    text-align: center
+
+.container
+  margin: 0 auto
+  padding: 30px 0
+  width: 1200px
+  max-width: 100%
+
+.sr-only
+  clip: rect(1px,1px,1px,1px)
+  overflow: hidden
+  display: none
+  position: absolute
+  top: -9999px
+
+/* HEADER */
+#header
+  min-height: 100vh
+  width: 100%
+  position: relative
+  background: #fff url(../img/header.jpg) center
+  background-size: cover
+  background-attachment: fixed
+
+  .header-overlay
+    position: absolute
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, 0.6)
+  #navigation
+    display: flex
+    flex-wrap: no-wrap
+    justify-content: space-between
+    width: 100%
+    position: fixed
+    top: 0
+    left: 0
+    z-index: $stickymenu
+    background: $menuBgColor
+
+    .logo
+      padding: 5px
+      img
+        width: 40px
+    #heading-nav
+      ul
+        margin: 0 auto
+        float: none
+        text-align: center
+        max-width: 100%
+        @extend %mp0
+        list-style: none
+
+        li
+          float: none
+          display: inline-block
+
+          a
+            color: $menuFontColor
+            display: inline-block
+            padding: 15px 30px
+            text-decoration: none
+            border: 2px solid transparent
+            transition: 0.3s
+            &:hover,
+            &:focus
+              background: $menuFontColor
+              color: invert($menuFontColor)
+              border-bottom: 2px solid $decoColor
+
+  .menu-switcher
+    margin-right: 10px
+    #hamburger
+      display: none
+      margin: 5px
+      width: 40px
+      height: 40px
+      border: 1px solid $menuFontColor
+      background: none
+      color: $menuFontColor
+      +border-radius(5px)
+      +transition(0.3s)
+
+      &:hover,
+      &:focus
+        color: invert($menuFontColor)
+        background: $menuFontColor
+        cursor: pointer
+
+      &.active
+        background: $decoColor
+
+  .heading-title
+    text-align: center
+    display: inline-block
+    color: $titleFontColor
+    padding: 30px 80px
+    border: 2px solid $titleFontColor
+    position: absolute
+    width: 70%
+    top: 50%
+    left: 50%
+    +transform(translate(-50%, -50%))
+    +border-radius(10px)
+
+    h1, p
+      @extend %mp0
+      color: $titleFontColor
+    p
+      font-size: $baseFontSize * 1.6
+
+  .scroller
+    position: absolute
+    bottom: 30px
+    left: 50%
+    +transform(translate(-50%, 0))
+
+    .scroll
+      display: block
+      width: 26px
+      height: 40px
+      border: 2px solid $titleFontColor
+      +border-radius(13px)
+      position: relative
+
+      &:after
+        content: ""
+        position: absolute
+        width: 6px
+        height: 6px
+        background: $titleFontColor
+        top: 6px
+        left: calc(50% - 3px)
+        +border-radius(50px)
+        +transition(.4s)
+      &:hover
+        &:after
+          top: 25px
+/* ABOUT */
+#o-mnie
+  .personal-info
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+    .description
+      width: calc(100% - 380px)
+
+      p
+        line-height: 1.6em
+
+        a
+          text-decoration: none
+          color: $decoColor
+
+          &:hover,
+          &:focus
+            text-decoration: underline
+
+    .photo
+      width: 350px
+      text-align: center
+
+      img
+        max-width: 100%
+        +border-radius(50%)
+
+    h3
+      margin-bottom: 30px
+
+/* SKILLS */
+.skills
+  margin-top: 30px
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+
+.skill
+  width: 45%
+  position: relative
+  height: 96px
+  margin: 20px 0
+  padding-left: 110px
+  //border: 1px solid #ccc
+
+  .tech-logo
+    position: absolute
+    top: 0
+    left: 0
+
+    img
+      width: 96px
+
+  .tech-info
+    position: relative
+    top: 50%
+    +transform(translate(0, -50%))
+
+    .tech-name
+      font-size: $baseFontSize * 1.4
+      margin-bottom: 5px
+
+    .progress
+      width: 100%
+      background: $progressBg
+      font-size: 16px
+      border: 1px solid #000
+
+    [class^="progress-bar"]
+      height: 22px
+      padding: 0 10px
+      background: $progressBar
+      color: $progressFontColor
+
+    .progress-bar-20
+      width: 20%
+    .progress-bar-25
+      width: 25%
+    .progress-bar-30
+      width: 30%
+    .progress-bar-35
+      width: 35%
+    .progress-bar-40
+      width: 40%
+    .progress-bar-45
+      width: 45%
+    .progress-bar-50
+      width: 50%
+    .progress-bar-55
+      width: 55%
+    .progress-bar-60
+      width: 60%
+    .progress-bar-65
+      width: 65%
+    .progress-bar-70
+      width: 70%
+    .progress-bar-75
+      width: 75%
+    .progress-bar-80
+      width: 80%
+    .progress-bar-85
+      width: 85%
+    .progress-bar-90
+      width: 90%
+    .progress-bar-95
+      width: 95%
+    .progress-bar-99
+      width: 99%
+    .progress-bar-100
+      width: 100%
+
+/* PORTFOLIO */
+#portfolio
+  .works
+    padding-top: 30px
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+    #ellipsis
+      background-image: url(../img/portfolio/Ellipsis.jpg)
+    #rockpaper
+      background-image: url(../img/portfolio/RockPaperScissors.jpg)
+    #kanban
+      background-image: url(../img/portfolio/KanbanBoard.jpg)
+    .work
+      height: 250px
+      width: 32%
+      background-color: $bgColor
+      background-position: center
+      background-size: cover
+      border: 1px solid $borderColor
+      position: relative
+
+      .work-overlay
+        opacity: 0
+        position: absolute
+        width: 100%
+        height: 100%
+        background: rgba(0, 0, 0, 0.75)
+        +transition(0.3s)
+
+      &:hover,
+      &:focus
+        .work-overlay,
+        .links
+          opacity: 1
+    .links
+      opacity: 0
+      position: absolute
+      top: 50%
+      left: 50%
+      +transform(translate(-50%, -50%))
+      +transition(0.3s)
+
+      a
+        margin: 0 10px
+        display: inline-block
+        text-align: center
+        width: 48px
+        height: 48px
+        background: $bgColor
+        color: $baseFontColor
+        +border-radius(5px)
+
+        em
+          font-size: 38px
+          line-height: 48px
+
+        &:hover,
+        &:focus
+          color: $decoColor
+
+/* CONTACT */
+#kontakt
+  background: $baseFontColor
+  border: none
+  color: $bgColor
+
+  .container
+    padding: 0
+
+  h2
+    color: $bgColor
+  .contact
+    padding-top: 20px
+    font-size: 1.2em
+
+    div
+      text-align: center
+      margin-top: 15px
+      width: 100%
+
+    em
+      margin-right: 10px
+
+    a
+      color: $bgColor
+      text-decoration: none
+      +transition(0.3s)
+
+      &:hover,
+      &:focus
+        color: $decoColor
+
+/* FOOTER */
+#footer
+  text-align: center
+  width: 100%
+  padding: 20px 30px
+  background: $baseFontColor
+  color: $bgColor
+
+@import responsive

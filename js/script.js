@@ -1,0 +1,1 @@
+$(function(){$("#heading-nav a").click(function(e){e.preventDefault();let t=$("#heading-nav");"open"==t.attr("class")&&t.removeClass("open");let a=$(this).attr("href");$("html, body").animate({scrollTop:$(a).offset().top},1e3)}),$("#hamburger").click(function(e){e.preventDefault();let t=$(this),a=$("#heading-nav");t.toggleClass("active"),a.toggleClass("open")})});

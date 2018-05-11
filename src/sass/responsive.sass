@@ -1,0 +1,73 @@
+@media screen and (max-width: 1199px)
+  .container
+    padding: 30px 20px
+
+@media screen and (max-width: 991px)
+  h1
+    font-size: $baseFontSize * 3
+  h2
+    font-size: $baseFontSize * 2
+  h3
+    font-size: $baseFontSize * 1.8
+  #header
+    #heading-nav
+      display: none
+      height: 0
+
+      &.open
+        display: block
+        height: auto
+        color: pink
+
+      ul
+        background: $menuBgColor
+        position: absolute
+        top: 60px
+        right: 10px
+        width: 300px
+        border: 1px solid darken($borderColor, 50%)
+        li
+          width: 100%
+          display: block
+          border-bottom: 1px solid darken($borderColor, 50%)
+
+          &:last-of-type
+            border-bottom: none
+
+          a
+            width: 100%
+
+
+    .menu-switcher
+      #hamburger
+        display: block
+  #o-mnie
+    .personal-info
+      flex-direction: column-reverse
+      .description,
+      .photo
+        width: 100%
+      .photo
+        margin-bottom: 30px
+  #portfolio
+    .works
+      .work
+        width: 48%
+        margin: 10px 0
+
+@media screen and (max-width: 767px)
+  #header
+    .heading-title
+      padding: 30px
+  .skill
+    width: 100%
+  #portfolio
+    .works
+      .work
+        width: 100%
+        max-width: 400px
+        margin: 10px auto
+
+@media screen and (max-width: 575px)
+  h1
+    font-size: $baseFontSize * 2.2
