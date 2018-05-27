@@ -1,3 +1,15 @@
+@media (pointer: coarse) //Show Portfolio buttons on touch screen
+  #portfolio
+    .works
+      .work
+        .links
+          opacity: 1
+          top: auto
+          left: auto
+          bottom: 10px
+          right: 10px
+          +transform(translate(0, 0))
+
 @media screen and (max-width: 1199px)
   .container
     padding: 30px 20px
@@ -52,8 +64,8 @@
   #portfolio
     .works
       .work
-        width: 48%
-        margin: 10px 0
+        width: 47%
+        margin: 10px
 
 @media screen and (max-width: 767px)
   #header
